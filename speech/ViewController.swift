@@ -9,11 +9,13 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,AVSpeechSynthesizerDelegate{
 
+    let avs = AVSpeechSynthesizer()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        avs.delegate = self
     }
 
     @IBAction func speech(_ sender: Any) {
@@ -30,7 +32,14 @@ class ViewController: UIViewController {
         
         let loc = "en-US"
         su.voice = AVSpeechSynthesisVoice(language:loc)
-        AVSpeechSynthesizer().speak(su)
+        su.rate = 0.8;
+        su.pitchMultiplier = 2.0;
+        
+        print(AVSpeechSynthesizer.BufferCallback.self)
+        
+        avs.speak(su)
+        
+        
     }
     
 }
