@@ -33,7 +33,7 @@ class ViewController: UIViewController ,AVSpeechSynthesizerDelegate{
         let loc = "en-US"
         su.voice = AVSpeechSynthesisVoice(language:loc)
         su.rate = 0.8;
-        su.pitchMultiplier = 2.0;
+        su.pitchMultiplier = 2.0
         
         print(AVSpeechSynthesizer.BufferCallback.self)
         
